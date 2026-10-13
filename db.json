@@ -1,0 +1,205 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Картоп, 1 кг",
+      "price": 350,
+      "oldPrice": 420,
+      "category": "vegetables",
+      "rating": 4.8,
+      "reviews": 24,
+      "badge": "-15%",
+      "stock": 2,
+      "description": "Жаңа жиналған сапалы картоп. Қазақстан өнімі.",
+      "image": "image/potato.png"
+    },
+    {
+      "id": "2",
+      "name": "Табиғи бал, 1 л",
+      "price": 4500,
+      "oldPrice": 5000,
+      "category": "honey",
+      "rating": 4.9,
+      "reviews": 31,
+      "badge": "Хит",
+      "stock": 7,
+      "description": "100% табиғи бал. Қоспасыз және табиғи өнім.",
+      "image": "image/honey.png"
+    },
+    {
+      "id": "3",
+      "name": "Фермерлік сүт, 1 л",
+      "price": 600,
+      "oldPrice": 700,
+      "category": "milk",
+      "rating": 4.7,
+      "reviews": 18,
+      "badge": "Жаңа",
+      "stock": 5,
+      "description": "Жаңа фермерлік сүт. Табиғи және балғын өнім.",
+      "image": "image/milk.png"
+    },
+    {
+      "id": "4",
+      "name": "Сәбіз, 1 кг",
+      "price": 250,
+      "oldPrice": 300,
+      "category": "vegetables",
+      "rating": 4.6,
+      "reviews": 15,
+      "badge": "-10%",
+      "stock": 9,
+      "description": "Балғын және табиғи сәбіз. Қазақстанда өсірілген.",
+      "image": "image/carrot.png"
+    },
+    {
+      "name": "Қызанақ 1кг",
+      "price": 500,
+      "stock": 10,
+      "description": "Өте дәмдә қһбалғын қызанаұтар",
+      "image": "https://avatars.mds.yandex.net/i?id=1c02131ec9b1b9fe0aeea2198a9317e461cf2b12-13240882-images-thumbs&n=13",
+      "category": "vegetables",
+      "oldPrice": 0,
+      "badge": "",
+      "id": "a80b32b9-c6e0-4cf8-8f19-f4ee13ab0990",
+      "farmerId": "dc7c195c-440a-442a-8337-af14625c8a52"
+    }
+  ],
+  "users": [
+    {
+      "id": "e1a4f35d-a77c-4b44-b060-8cc4535d3fd0",
+      "name": "Dariga",
+      "email": "zhapbarova23@gmail.com",
+      "password": "a8b85d769e8811feb946fc718af61f79:1a06810cb4b890add1d7dd2cb20e3d87194f3fa032a6dac13f854105bd2b112685d54c9fca0ae6da6d5202fa1a26d3822c2aa17f746d32ba8f643a8330e20359",
+      "role": "customer",
+      "phone": "",
+      "address": ""
+    },
+    {
+      "id": "0805603f-224e-40bc-8403-d2a82b4d7a87",
+      "name": "Admin",
+      "email": "zhapbarova@gmail.com",
+      "password": "fad0c0e4579090aa5ca7b4d2b7915c7b:bf62d5d4ac3d8ab0d1df76b47a9e0c1676cdcd9a29f7bf4a7d1c46d92ad465130210d0dbee2fce5fccec05a552b9ddfea79c7bf5925dd2bd350f3a8e6c2d2012",
+      "role": "admin",
+      "phone": "",
+      "address": ""
+    },
+    {
+      "id": "dc7c195c-440a-442a-8337-af14625c8a52",
+      "name": "Фермер",
+      "email": "zhapbarov@gmail.com",
+      "password": "e148bf58d4e6c7bf3758104ea71a7091:a849529c355206b7635993f235551e30b403385a1b1df39ffe22e84654a9fc8b7541769012586df912ba7813e99cd0802599183f272fc3b0bf37a986fa02ec44",
+      "role": "farmer",
+      "phone": "",
+      "address": ""
+    }
+  ],
+  "orders": [
+    {
+      "id": "2404c875-4bdd-48e0-853c-54ef90930d76",
+      "userId": "e1a4f35d-a77c-4b44-b060-8cc4535d3fd0",
+      "customerName": "Dariga",
+      "phone": "87753256125",
+      "address": "Кургалжинское шоссе 27/2",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Картоп, 1 кг",
+          "price": 350,
+          "quantity": 3,
+          "farmerId": null
+        }
+      ],
+      "total": 1050,
+      "status": "new",
+      "createdAt": "2026-10-13T14:51:42.297Z"
+    },
+    {
+      "id": "9e730aed-b4fa-434b-a8d5-3e78905ec67b",
+      "userId": "e1a4f35d-a77c-4b44-b060-8cc4535d3fd0",
+      "customerName": "Dariga",
+      "phone": "87753256125",
+      "address": "Кургалжинское шоссе 27/2",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Картоп, 1 кг",
+          "price": 350,
+          "quantity": 4,
+          "farmerId": null
+        }
+      ],
+      "total": 1400,
+      "status": "new",
+      "createdAt": "2026-10-13T14:56:33.915Z"
+    },
+    {
+      "id": "59a6bb30-b57d-468b-af8a-47bfd32477ea",
+      "userId": "e1a4f35d-a77c-4b44-b060-8cc4535d3fd0",
+      "customerName": "Dariga",
+      "phone": "87753256125",
+      "address": "Кургалжинское шоссе 27/2",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Картоп, 1 кг",
+          "price": 350,
+          "quantity": 3,
+          "farmerId": null
+        }
+      ],
+      "total": 1050,
+      "status": "new",
+      "createdAt": "2026-10-13T14:57:27.286Z"
+    },
+    {
+      "id": "46de3a28-50f9-47c3-ba7e-cefe74b0285f",
+      "userId": "e1a4f35d-a77c-4b44-b060-8cc4535d3fd0",
+      "customerName": "Dariga",
+      "phone": "87753256125",
+      "address": "Кургалжинское шоссе 27/2",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Картоп, 1 кг",
+          "price": 350,
+          "quantity": 2,
+          "farmerId": null
+        }
+      ],
+      "total": 700,
+      "status": "cancelled",
+      "createdAt": "2026-10-13T14:59:45.923Z"
+    }
+  ],
+  "reviews": [],
+  "messages": [
+    {
+      "id": "6cc8939f-2222-48ba-86e8-cf1d3adbd29e",
+      "orderId": "9e730aed-b4fa-434b-a8d5-3e78905ec67b",
+      "userId": "e1a4f35d-a77c-4b44-b060-8cc4535d3fd0",
+      "name": "Dariga",
+      "role": "customer",
+      "text": ";lokijuhyg",
+      "createdAt": "2026-10-13T14:57:45.512Z"
+    },
+    {
+      "id": "278e2d13-d4d9-48a2-87c6-85584218b865",
+      "orderId": "9e730aed-b4fa-434b-a8d5-3e78905ec67b",
+      "userId": "e1a4f35d-a77c-4b44-b060-8cc4535d3fd0",
+      "name": "Dariga",
+      "role": "customer",
+      "text": ";'pokijuhgfx",
+      "createdAt": "2026-10-13T14:57:52.028Z"
+    },
+    {
+      "id": "645c2a4c-3cff-4e19-aecc-53731c44d547",
+      "orderId": "59a6bb30-b57d-468b-af8a-47bfd32477ea",
+      "userId": "0805603f-224e-40bc-8403-d2a82b4d7a87",
+      "name": "Admin",
+      "role": "admin",
+      "text": "эждлшогрпас",
+      "createdAt": "2026-10-13T15:01:45.931Z"
+    }
+  ]
+}

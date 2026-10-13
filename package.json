@@ -1,0 +1,1 @@
+{"name":"agromarket-plus","version":"2.0.0","private":true,"scripts":{"start":"node server.js","dev":"node server.js"},"engines":{"node":">=18"},"description":"AgroMarket marketplace demo with file-backed Node API"}

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgroMarket Admin</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<header class="admin-header">
+
+    <div>
+        <h1>🌱 AgroMarket</h1>
+        <p>Admin Panel</p>
+    </div>
+
+    <a href="index.html" class="shop-link">
+        ← Дүкенге қайту
+    </a>
+
+</header>
+
+
+<main class="admin-container">
+
+    <!-- STATISTICS -->
+
+    <section class="statistics">
+
+        <div class="stat-card">
+            <span>📦</span>
+
+            <div>
+                <p>Тауар саны</p>
+                <h2 id="product-count">0</h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <span>💰</span>
+
+            <div>
+                <p>Орташа баға</p>
+                <h2>
+                    <span id="average-price">0</span> ₸
+                </h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <span>🏪</span>
+
+            <div>
+                <p>Қоймадағы өнім</p>
+                <h2 id="total-stock">0</h2>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ADD PRODUCT -->
+
+    <section class="admin-section">
+
+        <div class="section-title">
+
+            <div>
+                <h2>➕ Жаңа тауар</h2>
+                <p>Каталогқа жаңа өнім қосу</p>
+            </div>
+
+        </div>
+
+
+        <form id="product-form">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Тауар атауы</label>
+
+                    <input
+                        type="text"
+                        id="product-name"
+                        placeholder="Мысалы: Алма, 1 кг"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>Бағасы</label>
+
+                    <input
+                        type="number"
+                        id="product-price"
+                        placeholder="700"
+                        min="0"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>Ескі бағасы</label>
+
+                    <input
+                        type="number"
+                        id="product-old-price"
+                        placeholder="850"
+                        min="0"
+                    >
+                </div>
+
+
+                <div>
+                    <label>Қойма саны</label>
+
+                    <input
+                        type="number"
+                        id="product-stock"
+                        placeholder="10"
+                        min="0"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>Категория</label>
+
+                    <select id="product-category">
+
+                        <option value="vegetables">
+                            Көкөністер
+                        </option>
+
+                        <option value="milk">
+                            Сүт өнімдері
+                        </option>
+
+                        <option value="honey">
+                            Бал
+                        </option>
+
+                        <option value="other">
+                            Басқа
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div>
+                    <label>Белгі</label>
+
+                    <input
+                        type="text"
+                        id="product-badge"
+                        placeholder="Жаңа / Хит / -10%"
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="full-field">
+
+                <label>Сурет жолы немесе URL</label>
+
+                <input
+                    type="text"
+                    id="product-image"
+                    placeholder="image/apple.png"
+                    required
+                >
+
+            </div>
+
+
+            <div class="full-field">
+
+                <label>Сипаттамасы</label>
+
+                <textarea
+                    id="product-description"
+                    placeholder="Тауар туралы қысқаша ақпарат..."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="add-button"
+            >
+                + Тауар қосу
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="admin-section">
+
+        <div class="section-title">
+
+            <div>
+                <h2>📦 Тауарларды басқару</h2>
+                <p>Өзгерту немесе өшіру</p>
+            </div>
+
+
+            <input
+                type="text"
+                id="admin-search"
+                placeholder="🔍 Тауар іздеу..."
+            >
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Фото</th>
+                        <th>Тауар</th>
+                        <th>Бағасы</th>
+                        <th>Қойма</th>
+                        <th>Категория</th>
+                        <th>Әрекет</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="product-table">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- EDIT WINDOW -->
+
+<div class="edit-modal" id="edit-modal">
+
+    <div class="edit-box">
+
+        <button
+            class="edit-close"
+            id="edit-close"
+        >
+            ✕
+        </button>
+
+
+        <h2>✏️ Тауарды өзгерту</h2>
+
+
+        <input
+            type="hidden"
+            id="edit-id"
+        >
+
+
+        <label>Атауы</label>
+
+        <input
+            type="text"
+            id="edit-name"
+        >
+
+
+        <label>Бағасы</label>
+
+        <input
+            type="number"
+            id="edit-price"
+        >
+
+
+        <label>Ескі бағасы</label>
+
+        <input
+            type="number"
+            id="edit-old-price"
+        >
+
+
+        <label>Қойма саны</label>
+
+        <input
+            type="number"
+            id="edit-stock"
+        >
+
+
+        <label>Сипаттамасы</label>
+
+        <textarea id="edit-description"></textarea>
+
+
+        <button
+            class="save-button"
+            id="save-product"
+        >
+            💾 Өзгерісті сақтау
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- MESSAGE -->
+
+<div
+    class="admin-notification"
+    id="admin-notification"
+></div>
+
+
+<script src="admin.js"></script>
+
+</body>
+</html>

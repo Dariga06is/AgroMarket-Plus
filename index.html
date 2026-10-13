@@ -1,0 +1,355 @@
+
+<!doctype html>
+<html lang="kk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AgroMarket — Табиғи өнімдер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+    <div class="wrap bar">
+        <a class="brand" href="#home">
+            <span class="leaf">✳</span>
+            Agro<span>Market</span>
+        </a>
+
+        <nav>
+            <button data-tab="home" class="nav active">Басты бет</button>
+            <button data-tab="catalog" class="nav">Каталог</button>
+            <button data-tab="orders" class="nav">Тапсырыстар</button>
+            <button data-tab="dashboard" class="nav hidden" id="dashboard-nav">
+                Басқару
+            </button>
+        </nav>
+
+        <div class="right">
+            <button class="plain" id="profile-button">
+                Кіру / Тіркелу
+            </button>
+
+            <button class="cart-trigger" id="cart-button">
+                🛒 Себет <b id="cart-count">0</b>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="wrap">
+
+    <!-- БАСТЫ БЕТ -->
+    <section id="home-section" class="screen">
+
+        <div class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">ҚАЗАҚСТАН ФЕРМЕРЛЕРІНЕН</span>
+
+                <h1>
+                    Табиғаттың ең жақсы өнімдері —
+                    <em>сіздің дастарханыңызға</em>
+                </h1>
+
+                <p>
+                    Жергілікті өндірушілерден жаңа жиналған
+                    өнімдерді тиімді бағамен таңдаңыз.
+                </p>
+
+                <button class="primary" data-tab="catalog">
+                    Тауарларды қарау →
+                </button>
+            </div>
+
+            <div class="hero-photo">
+                <img src="image/carrot.png"
+                     alt="Фермерлік сәбіз">
+            </div>
+        </div>
+
+        <div class="features">
+            <div>
+                🚚
+                <b>Ыңғайлы тапсырыс</b>
+                <small>Үйден шықпай сатып алыңыз</small>
+            </div>
+
+            <div>
+                🌿
+                <b>Табиғи өнім</b>
+                <small>Сапалы фермерлік тауарлар</small>
+            </div>
+
+            <div>
+                🤝
+                <b>Фермерді қолдау</b>
+                <small>Қазақстандық өндірушілер</small>
+            </div>
+        </div>
+
+        <div class="section-head">
+            <div>
+                <span class="eyebrow">КАТАЛОГ</span>
+                <h2>Таңдаулы өнімдер</h2>
+            </div>
+
+            <button class="outline" data-tab="catalog">
+                Барлығын көру →
+            </button>
+        </div>
+
+        <div id="featured" class="products"></div>
+    </section>
+
+
+    <!-- КАТАЛОГ -->
+    <section id="catalog-section" class="screen hidden">
+
+        <div class="page-title">
+            <span class="eyebrow">AGROMARKET</span>
+            <h1>Өнімдер каталогы</h1>
+            <p>Табиғи, балғын және пайдалы өнімдер</p>
+        </div>
+
+        <div class="filters">
+            <input id="search"
+                   placeholder="🔎 Тауар атауын іздеу...">
+
+            <select id="category">
+                <option value="all">Барлық санаттар</option>
+                <option value="vegetables">Көкөністер</option>
+                <option value="honey">Бал</option>
+                <option value="milk">Сүт өнімдері</option>
+                <option value="other">Басқа өнімдер</option>
+            </select>
+
+            <select id="sort">
+                <option value="default">Ұсынылған</option>
+                <option value="low">Алдымен арзан</option>
+                <option value="high">Алдымен қымбат</option>
+                <option value="rating">Рейтинг бойынша</option>
+            </select>
+        </div>
+
+        <div id="catalog" class="products"></div>
+    </section>
+
+
+    <!-- КЛИЕНТ ТАПСЫРЫСТАРЫ -->
+    <section id="orders-section" class="screen hidden">
+
+        <div class="page-title">
+            <span class="eyebrow">ЖЕКЕ КАБИНЕТ</span>
+            <h1>Менің тапсырыстарым</h1>
+            <p>Сатып алуларыңызды бақылаңыз</p>
+        </div>
+
+        <div id="orders-list"></div>
+    </section>
+
+
+    <!-- ФЕРМЕР ЖӘНЕ АДМИН -->
+    <section id="dashboard-section" class="screen hidden">
+
+        <div class="page-title">
+            <span class="eyebrow">СЕРІКТЕСТЕРГЕ</span>
+            <h1 id="dashboard-headline">Басқару панелі</h1>
+            <p id="dashboard-description">
+                Тауарлар мен тапсырыстарды басқару
+            </p>
+        </div>
+
+        <!-- FARMER STUDIO -->
+        <div id="farmer-studio" class="farmer-studio" hidden>
+
+            <div class="studio-banner">
+                <div>
+                    <span class="eyebrow">FARMER STUDIO</span>
+                    <h2>Фермерлік дүкенді басқару</h2>
+                    <p>
+                        Жаңа тапсырыстар, сатылым және қойма —
+                        бәрі бір кабинетте.
+                    </p>
+                </div>
+
+                <div class="studio-emblem">🌾</div>
+            </div>
+
+            <div class="farmer-kpis" id="farmer-kpis"></div>
+            <div class="farmer-alerts" id="farmer-alerts"></div>
+        </div>
+
+
+        <!-- ТАУАРЛАРДЫ БАСҚАРУ -->
+        <div id="farmer-tools">
+
+            <div class="dash-layout">
+
+                <section class="panel">
+                    <h2>Тауар қосу / өңдеу</h2>
+
+                    <form id="product-form">
+                        <input type="hidden" name="productId">
+
+                        <label>
+                            Атауы
+                            <input name="name"
+                                   required
+                                   maxlength="120"
+                                   placeholder="Мысалы: Алма, 1 кг">
+                        </label>
+
+                        <div class="two">
+                            <label>
+                                Бағасы, ₸
+                                <input type="number"
+                                       name="price"
+                                       min="1"
+                                       required>
+                            </label>
+
+                            <label>
+                                Қоймадағы саны
+                                <input type="number"
+                                       name="stock"
+                                       min="0"
+                                       required>
+                            </label>
+                        </div>
+
+                        <label>
+                            Санаты
+                            <select name="category">
+                                <option value="vegetables">Көкөністер</option>
+                                <option value="honey">Бал</option>
+                                <option value="milk">Сүт өнімдері</option>
+                                <option value="other">Басқа</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Сурет жолы
+                            <input name="image"
+                                   placeholder="image/potato.png немесе HTTPS URL">
+                        </label>
+
+                        <label>
+                            Сипаттамасы
+                            <textarea name="description" rows="3"></textarea>
+                        </label>
+
+                        <div class="actions">
+                            <button class="primary" type="submit">
+                                Сақтау
+                            </button>
+
+                            <button type="reset" class="outline">
+                                Тазалау
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+
+                <section class="panel">
+                    <h2>Менің тауарларым</h2>
+
+                    <input id="farmer-product-search"
+                           placeholder="🔎 Өз өнімдеріңді іздеу..."
+                           aria-label="Өнім іздеу">
+
+                    <div id="my-products"></div>
+                </section>
+
+            </div>
+        </div>
+
+
+        <!-- АНАЛИТИКА -->
+        <section class="panel gap-top">
+            <h2>📊 Сатылым аналитикасы</h2>
+            <div id="analytics" class="stats"></div>
+            <div id="top-products"></div>
+        </section>
+
+
+        <!-- АДМИН ҚОЛДАНУШЫЛАРЫ -->
+        <section class="panel gap-top"
+                 id="admin-users-panel"
+                 hidden>
+
+            <h2>👥 Қолданушыларды басқару</h2>
+            <div id="admin-users"></div>
+        </section>
+
+
+        <!-- ТАПСЫРЫСТАРДЫ БАСҚАРУ -->
+        <section class="panel gap-top">
+            <h2 id="manage-orders-title">
+                Келіп түскен тапсырыстар
+            </h2>
+
+            <p class="muted">
+                Фермер тек өзінің тапсырыстарын өңдейді.
+                Әкімші барлық тапсырыстарды бақылайды.
+            </p>
+
+            <div id="manage-orders"></div>
+        </section>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="wrap foot">
+        <span class="brand">
+            ✳ Agro<span>Market</span>
+        </span>
+
+        <span>
+            Қазақстан фермерлеріне арналған маркетплейс • Демо жоба
+        </span>
+    </div>
+</footer>
+
+
+<!-- СЕБЕТ -->
+<div id="shade" class="shade hidden"></div>
+
+<aside id="cart-drawer" class="drawer hidden">
+
+    <div class="drawer-top">
+        <h2>🛒 Сіздің себетіңіз</h2>
+        <button class="close" data-close>✕</button>
+    </div>
+
+    <div id="cart-items" class="drawer-body"></div>
+
+    <div class="drawer-bottom">
+        <div class="total">
+            Барлығы <b id="cart-total">0 ₸</b>
+        </div>
+
+        <button id="checkout-button" class="primary wide">
+            Тапсырыс рәсімдеу
+        </button>
+    </div>
+
+</aside>
+
+
+<!-- МОДАЛЬДЫ ТЕРЕЗЕ -->
+<div id="modal" class="modal hidden">
+    <button class="close modal-close" data-close>✕</button>
+    <div id="modal-content"></div>
+</div>
+
+<div id="toast" aria-live="polite"></div>
+
+<script src="app.js" defer></script>
+
+</body>
+</html>

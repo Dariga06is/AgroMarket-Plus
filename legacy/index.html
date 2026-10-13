@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgroMarket</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="header-container">
+
+        <div class="logo">
+            🌱 AgroMarket
+        </div>
+
+        <button class="cart-button" id="open-cart">
+            🛒 Себет
+            <span id="cart-count">0</span>
+        </button>
+
+    </div>
+</header>
+
+
+<!-- MAIN -->
+
+<main>
+
+    <!-- ІЗДЕУ ЖӘНЕ СҰРЫПТАУ -->
+
+    <section class="controls">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Тауарды іздеу..."
+        >
+
+        <select id="sort">
+
+            <option value="default">
+                Сұрыптау
+            </option>
+
+            <option value="low">
+                Бағасы: арзан → қымбат
+            </option>
+
+            <option value="high">
+                Бағасы: қымбат → арзан
+            </option>
+
+        </select>
+
+    </section>
+
+
+    <!-- КАТЕГОРИЯЛАР -->
+
+    <section class="categories">
+
+        <button
+            class="category-btn active"
+            data-category="all">
+            🌿 Барлығы
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="vegetables">
+            🥕 Көкөністер
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="milk">
+            🥛 Сүт өнімдері
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="honey">
+            🍯 Бал
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="favorites">
+            ❤️ Таңдаулылар
+        </button>
+
+    </section>
+
+
+    <h2 class="catalog-title">
+        Каталог
+    </h2>
+
+
+    <p id="loading">
+        Тауарлар жүктелуде...
+    </p>
+
+
+    <!-- ТАУАРЛАР -->
+
+    <section class="catalog"></section>
+
+</main>
+
+
+<!-- СЕБЕТТІҢ ҚАРА ФОНЫ -->
+
+<div class="overlay" id="overlay"></div>
+
+
+<!-- СЕБЕТ -->
+
+<aside class="cart-panel" id="cart-panel">
+
+    <div class="cart-header">
+
+        <h2>
+            🛒 Себет
+        </h2>
+
+        <button
+            id="close-cart"
+            class="close-button">
+            ✕
+        </button>
+
+    </div>
+
+
+    <div id="cart-items"></div>
+
+
+    <div class="cart-bottom">
+
+        <div class="cart-total">
+
+            Жалпы:
+
+            <span id="cart-total">
+                0
+            </span>
+
+            ₸
+
+        </div>
+
+
+        <button
+            class="order-button"
+            id="order-button">
+            Тапсырыс беру
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ТАУАР POPUP -->
+
+<div
+    class="product-modal"
+    id="product-modal">
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            id="modal-close">
+            ✕
+        </button>
+
+        <div id="modal-body"></div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     CHECKOUT MODAL
+========================= -->
+
+<div class="checkout-modal" id="checkout-modal">
+
+    <div class="checkout-box">
+
+        <button
+            class="checkout-close"
+            id="checkout-close">
+            ✕
+        </button>
+
+        <h2>🧾 Тапсырысты рәсімдеу</h2>
+
+        <div class="checkout-form">
+
+            <label>
+                Аты-жөніңіз
+            </label>
+
+            <input
+                type="text"
+                id="customer-name"
+                placeholder="Аты-жөніңізді енгізіңіз"
+            >
+
+
+            <label>
+                Телефон
+            </label>
+
+            <input
+                type="tel"
+                id="customer-phone"
+                placeholder="+7 777 123 45 67"
+            >
+
+
+            <label>
+                Мекенжай
+            </label>
+
+            <input
+                type="text"
+                id="customer-address"
+                placeholder="Мысалы: Астана, Қабанбай батыр 10"
+            >
+
+
+            <h3>🚚 Жеткізу тәсілі</h3>
+
+            <label class="radio-row">
+
+                <input
+                    type="radio"
+                    name="delivery"
+                    value="courier"
+                    checked
+                >
+
+                Курьермен жеткізу
+
+            </label>
+
+            <label class="radio-row">
+
+                <input
+                    type="radio"
+                    name="delivery"
+                    value="pickup"
+                >
+
+                Өзім алып кетемін
+
+            </label>
+
+
+            <h3>💳 Төлем тәсілі</h3>
+
+            <label class="radio-row">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Kaspi"
+                    checked
+                >
+
+                Kaspi
+
+            </label>
+
+            <label class="radio-row">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Карта"
+                >
+
+                Карта
+
+            </label>
+
+            <label class="radio-row">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Қолма-қол"
+                >
+
+                Қолма-қол
+
+            </label>
+
+
+            <h3>🎟️ Промокод</h3>
+
+            <div class="promo-row">
+
+                <input
+                    type="text"
+                    id="promo-code"
+                    placeholder="Промокод"
+                >
+
+                <button
+                    type="button"
+                    id="apply-promo">
+                    Қолдану
+                </button>
+
+            </div>
+
+            <p
+                id="promo-message"
+                class="promo-message">
+            </p>
+
+
+            <div class="checkout-summary">
+
+                <div>
+                    <span>Тауарлар:</span>
+
+                    <span>
+                        <span id="checkout-subtotal">0</span> ₸
+                    </span>
+                </div>
+
+
+                <div>
+                    <span>Жеткізу:</span>
+
+                    <span>
+                        <span id="delivery-price">0</span> ₸
+                    </span>
+                </div>
+
+
+                <div>
+                    <span>Жеңілдік:</span>
+
+                    <span class="discount">
+                        -<span id="discount-price">0</span> ₸
+                    </span>
+                </div>
+
+
+                <div class="checkout-final">
+
+                    <span>Жалпы:</span>
+
+                    <span>
+                        <span id="checkout-total">0</span> ₸
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="confirm-order"
+                id="confirm-order">
+
+                ✅ Тапсырысты растау
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ХАБАРЛАМА -->
+
+<div
+    class="notification"
+    id="notification">
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        🌱 AgroMarket
+    </h3>
+
+    <p>
+        Табиғи және сапалы өнімдер
+    </p>
+
+    <p>
+        © 2026 AgroMarket
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
